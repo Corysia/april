@@ -10,7 +10,7 @@ export class Node implements Entity
     private _enabled = true;
     public constructor()
     {
-        Logger.info("Initializing Node");
+        Logger.debug("Node::constructor()");
         const scene = SceneManager.instance.scene;
         this._onBeforeRenderObserver = scene.onBeforeRenderObservable.add(this.update);
         this._onAfterRenderObserver = scene.onAfterRenderObservable.add(this.lateUpdate);
@@ -24,12 +24,13 @@ export class Node implements Entity
 
     public update(): void
     {
-        Logger.trace("Node::update()");
+        Logger.debug("Node::update()");
       // TODO document why this method 'update' is empty
     }
 
     public lateUpdate(): void
     {
+        Logger.debug("Node::lateUpdate()");
         // TODO:: document why this method 'lateUpdate' is empty
     }
 

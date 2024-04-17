@@ -92,4 +92,37 @@ export class SceneManager
     public get scene(): Scene {
         return SceneManager._instance._scene;
     }
+
+    /**
+     * Starts the render loop.
+     */
+    public static startRenderLoop() {
+        try {
+            SceneManager.instance.engine.runRenderLoop(() => {
+                SceneManager.instance.scene.render();
+            });    
+        } catch (error) {
+            Logger.error("Failed to start render loop:", error);
+            Logger.trace(error);
+        }
+    }
+
+    /**
+     * Stops the render loop and animations.
+     */
+    public static stopRenderLoop() {
+        try {
+            SceneManager.instance.engine.stopRenderLoop();
+        } catch (error) {
+            Logger.error("Failed to stop render loop:", error);
+            Logger.trace(error);
+        }
+
+        try {
+            SceneManager.instance.scene.stopAnimation();
+        } catch (error) {
+            Logger.error("Failed to stop animations:", error);
+            Logger.trace(error);
+        }
+    }
 }

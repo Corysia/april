@@ -8,6 +8,7 @@ class Main {
     constructor() { 
         Logger.logLevel = LogLevel.TRACE;
         Logger.debug("Main::constructor()");
+        SceneManager.startRenderLoop();
         this.addEventListeners();
     }
 
@@ -36,10 +37,6 @@ class Main {
                 default:
                     break;
             }
-        });
-
-        engine.runRenderLoop(function () {
-            scene.render();
         });
 
         Logger.info("Application initialized.");
