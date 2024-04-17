@@ -1,12 +1,13 @@
 import "@babylonjs/inspector";
 import { SceneManager } from "./framework/SceneManager";
 import { ThirdPersonController } from "./framework/ThirdPersonController";
-import { Logger, LogLevel } from "./framework/Logger";
+import { Logger, LogLevel, LogTimestampFormat } from "./framework/Logger";
 
 class Main {
-    
-    constructor() { 
+
+    constructor() {
         Logger.logLevel = LogLevel.TRACE;
+        Logger.timestampFormat = LogTimestampFormat.LOCAL;
         Logger.debug("Main::constructor()");
         SceneManager.startRenderLoop();
         this.addEventListeners();
