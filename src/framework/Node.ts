@@ -14,7 +14,7 @@ export class Node implements Entity
         const scene = SceneManager.instance.scene;
         this._onBeforeRenderObserver = scene.onBeforeRenderObservable.add(this.update);
         this._onAfterRenderObserver = scene.onAfterRenderObservable.add(this.lateUpdate);
-    this.start();
+        this.start();
     }
 
     public start(): void
@@ -24,7 +24,7 @@ export class Node implements Entity
 
     public update(): void
     {
-        Debug.log("calling update on Node");
+        Debug.trace("Node::update()");
       // TODO document why this method 'update' is empty
     }
 
@@ -42,7 +42,7 @@ export class Node implements Entity
 
     public set enabled(value: boolean)
     {
-        Debug.log("setting enabled on Node to ${value}");
+        Debug.log("setting enabled on Node:", value);
         const scene = SceneManager.instance.scene;
         if (this._enabled === value) {
             return;

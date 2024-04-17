@@ -12,11 +12,12 @@ export class ThirdPersonController extends Node
 
     public override start(): void
     {
-        Debug.log("ThirdPersonController::start()");
+        Debug.trace("ThirdPersonController::start()");
     }
 
     public update(): void
     {
+        Debug.trace("ThirdPersonController::update()");
         super.update();
         // TODO: update camera and player mesh position/rotation based on user input
     }
