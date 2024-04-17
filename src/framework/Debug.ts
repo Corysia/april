@@ -66,11 +66,22 @@ export class Debug {
                 console.warn(message, ...optionalParams);
     }
 
+    /**
+     * Clears the console.
+     * 
+     * @returns void
+     */
     public static clear(): void
     {
         console.clear();
     }
 
+    /**
+     * Marks a time point in the console.
+     * 
+     * @param label - The label to be used for the time point.
+     * @returns void
+     */
     public static time(label: string): void
     {
         if (!Debug.production)
@@ -78,6 +89,12 @@ export class Debug {
                 console.time(label);
     }
 
+    /**
+     * Marks the end of a time point in the console.
+     * 
+     * @param label - The label of the time point.
+     * @returns void
+     */
     public static timeEnd(label: string): void
     {
         if (!Debug.production)
