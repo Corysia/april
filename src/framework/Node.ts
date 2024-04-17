@@ -52,7 +52,7 @@ export class Node implements Entity
      */
     public set enabled(value: boolean)
     {
-        Logger.debug("Node::enabled()", value);
+        Logger.debug(`Node::enabled(${value})`);
         const scene = SceneManager.instance.scene;
         if (this._enabled === value) {
             return;
