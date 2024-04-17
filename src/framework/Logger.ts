@@ -16,7 +16,9 @@ export enum LogTimestampFormat {
 /**
  * Represents a utility class for debugging purposes.
  *
- * @class Debug
+ * @class Logger
+ * @static
+ * @module framework
  */
 export class Logger {
 
@@ -149,10 +151,20 @@ export class Logger {
             console.table(tabularData, properties);
     }
 
+    /**
+     * Sets the log level.
+     * @param level The desired log level.
+     * @see LogLevel
+     */
     public static set logLevel(level: LogLevel) {
         Logger._logLevel = level;
     }
 
+    /**
+     * Gets the current log level.
+     * @returns The current log level.
+     * @see LogLevel
+     */
     public static get logLevel(): LogLevel {
         return Logger._logLevel;
     }
@@ -165,6 +177,12 @@ export class Logger {
         return '';
     }
 
+    /**
+     * Sets the format of the timestamp used in log messages.
+     * @param format The desired timestamp format.
+     * @default LogTimestampFormat.ISO
+     * @see LogTimestampFormat
+     */
     public static set timestampFormat(format: LogTimestampFormat) {
         Logger._timestampFormat = format;
     }
