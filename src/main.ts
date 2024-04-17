@@ -36,6 +36,9 @@ class Main {
         engine.runRenderLoop(function () {
             scene.render();
         });
+
+        // disable temporarily
+        player.enabled = false;
     }
 }
 

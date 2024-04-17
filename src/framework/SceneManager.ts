@@ -35,10 +35,10 @@ export class SceneManager
         }// TODO: create a WebGPU engine
         try {
             return new Engine(canvas, true);
-                } catch (error) {
-        console.error("Error creating engine:", error);
-        throw error;
-    }
+        } catch (error) {
+            console.error("Error creating engine:", error);
+            throw error;
+        }
     }
 
     private static createScene(engine: Engine, canvas: HTMLCanvasElement): Scene {

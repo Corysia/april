@@ -17,6 +17,7 @@ export class ThirdPersonController extends Node
     public update(): void
     {
         super.update();
+        console.debug("updating ThirdPersonController");
         // TODO: update camera and player mesh position/rotation based on user input
     }
 }
