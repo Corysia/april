@@ -1,4 +1,5 @@
 
+import { Debug } from "./Debug";
 import { Node } from "./Node";
 
 export class ThirdPersonController extends Node
@@ -6,18 +7,17 @@ export class ThirdPersonController extends Node
     public constructor()
     {
         super();
-        console.debug("Initializing ThirdPersonController");
+        Debug.log("ThirdPersonController::constructor()");
     }
 
     public override start(): void
     {
-        console.debug("calling start on ThirdPersonController");
+        Debug.log("ThirdPersonController::start()");
     }
 
     public update(): void
     {
         super.update();
-        console.debug("updating ThirdPersonController");
         // TODO: update camera and player mesh position/rotation based on user input
     }
 }

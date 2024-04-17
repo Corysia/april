@@ -1,4 +1,5 @@
 import { Engine, FreeCamera, HemisphericLight, MeshBuilder, Scene, Vector3 } from "@babylonjs/core";
+import { Debug } from "./Debug";
 
 export class SceneManager
 {
@@ -9,7 +10,7 @@ export class SceneManager
     
     public constructor()
     {
-        console.debug("Initializing SceneManager");
+        Debug.log("SceneManager::constructor()");
         let canvas = SceneManager.createCanvas();
         this._engine = SceneManager.createEngine(canvas);
         this._scene = SceneManager.createScene(this._engine, canvas);
@@ -36,7 +37,7 @@ export class SceneManager
         try {
             return new Engine(canvas, true);
         } catch (error) {
-            console.error("Error creating engine:", error);
+            Debug.error("Error creating engine:" + error);
             throw error;
         }
     }
