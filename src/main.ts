@@ -1,6 +1,7 @@
 import "@babylonjs/inspector";
 import { SceneManager } from "./framework/SceneManager";
 import { ThirdPersonController } from "./framework/ThirdPersonController";
+import { Logger, LogLevel } from "./framework/Logger";
 
 class Main {
     
@@ -37,6 +38,11 @@ class Main {
             scene.render();
         });
 
+        Logger.logLevel = LogLevel.DEBUG;
+        Logger.info("Application initialized.");
+        Logger.warn("this is a warning");
+        Logger.error("this is an error");
+    
         // disable temporarily
         player.enabled = false;
     }

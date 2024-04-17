@@ -1,7 +1,7 @@
 import { Observer, Scene } from "@babylonjs/core";
 import { Entity } from "./Entity";
 import { SceneManager } from "./SceneManager";
-import { Debug } from "./Debug";
+import { Logger } from "./Logger";
 
 export class Node implements Entity
 {
@@ -10,7 +10,7 @@ export class Node implements Entity
     private _enabled = true;
     public constructor()
     {
-        Debug.log("Initializing Node");
+        Logger.info("Initializing Node");
         const scene = SceneManager.instance.scene;
         this._onBeforeRenderObserver = scene.onBeforeRenderObservable.add(this.update);
         this._onAfterRenderObserver = scene.onAfterRenderObservable.add(this.lateUpdate);
@@ -19,12 +19,12 @@ export class Node implements Entity
 
     public start(): void
     {
-        Debug.log("calling start on Node");
+        Logger.debug("Node::start()");
     }
 
     public update(): void
     {
-        Debug.trace("Node::update()");
+        Logger.trace("Node::update()");
       // TODO document why this method 'update' is empty
     }
 
@@ -33,16 +33,26 @@ export class Node implements Entity
         // TODO:: document why this method 'lateUpdate' is empty
     }
 
+    /**
+     * Destroys the node.
+     */
     public destroy(): void
     {
-        Debug.log("calling destroy on Node");
+        Logger.debug("Node::destroy()");
         this.enabled = false;
         // TODO: isn't there a dispose that needs to be called?
     }
 
+    /**
+     * Gets or sets whether the node is enabled.
+     * If the node is disabled, it will not be updated or rendered.
+     * 
+     * @type {boolean}
+     * @memberof Node
+     */
     public set enabled(value: boolean)
     {
-        Debug.log("setting enabled on Node:", value);
+        Logger.debug("Node::enabled()", value);
         const scene = SceneManager.instance.scene;
         if (this._enabled === value) {
             return;
